@@ -79,7 +79,8 @@ export const create = async (productInfo: Product): Promise<UnitProduct | null> 
   const { name, price, quantity, image } = productInfo;
 
   return new Promise((resolve, reject) => {
-    connection.query("INSERT INTO product (id, name, price, quantity, image) VALUES (?, ?, ?, ?, ?)", [id, name, price, quantity, image], (error: MysqlError | null, result: OkPacket) => {
+    connection.query("INSERT INTO product (id, name, price, quantity, image) VALUES (?, ?, ?, ?, ?)", 
+    [id, name, price, quantity, image], (error: MysqlError | null, result: OkPacket) => {
       if (error) {
         console.error("Error creating product: ", error);
         reject(error);
@@ -95,7 +96,8 @@ export const update = async (id: string, updateValues: Product): Promise<UnitPro
   const { name, price, quantity, image } = updateValues;
 
   return new Promise((resolve, reject) => {
-    connection.query("UPDATE product SET name = ?, price = ?, quantity = ?, image = ? WHERE id = ?", [name, price, quantity, image, id], (error: MysqlError | null, _result: OkPacket) => {
+    connection.query("UPDATE product SET name = ?, price = ?, quantity = ?, image = ? WHERE id = ?", 
+    [name, price, quantity, image, id], (error: MysqlError | null, _result: OkPacket) => {
       if (error) {
         console.error("Error updating product: ", error);
         reject(error);

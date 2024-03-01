@@ -115,7 +115,7 @@ export const update = async (id: string, updateValues: UnitUser): Promise<UnitUs
   
     const { username, email, password } = updateValues;
     let query = "UPDATE users SET ";
-    let values: any[] = []; 
+    let values: any[] = [];
   
     if (username) {
       query += "username = ?, ";
